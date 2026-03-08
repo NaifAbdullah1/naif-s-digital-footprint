@@ -1,5 +1,8 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import logoSnb from "@/assets/logo-snb.png";
+import logoSmucker from "@/assets/logo-smucker.png";
+import logoUw from "@/assets/logo-uw.png";
 
 interface ExperienceItem {
   company: string;
@@ -8,6 +11,7 @@ interface ExperienceItem {
   location: string;
   highlight: string;
   bullets: string[];
+  logo: string;
 }
 
 const experiences: ExperienceItem[] = [
@@ -17,6 +21,7 @@ const experiences: ExperienceItem[] = [
     period: "2025 — Present",
     location: "Riyadh",
     highlight: "Digital strategy & product",
+    logo: logoSnb,
     bullets: [
       "Led market & competitor scans presented to Heads & CTO, shaping the department's digital roadmap.",
       "Built Power BI dashboard consolidating 25+ project lifecycles, cutting status meetings by 40%.",
@@ -30,6 +35,7 @@ const experiences: ExperienceItem[] = [
     period: "2023",
     location: "Ohio",
     highlight: "Performance & compliance",
+    logo: logoSmucker,
     bullets: [
       "Reduced test suite runtime by 41% through automated testing optimization.",
       "Restructured cookie consent for CCPA compliance, reducing legal risk.",
@@ -42,6 +48,7 @@ const experiences: ExperienceItem[] = [
     period: "2022 — 2024",
     location: "Wisconsin",
     highlight: "Building tools at scale",
+    logo: logoUw,
     bullets: [
       "Built web utility used by 90+ employees (React, Node, MySQL) replacing legacy systems.",
       "Created ReactJS training program, accelerating onboarding and code quality.",
@@ -54,6 +61,7 @@ const experiences: ExperienceItem[] = [
     period: "2022 — 2023",
     location: "Wisconsin",
     highlight: "Leadership & operations",
+    logo: logoUw,
     bullets: [
       "Oversaw 90+ student employees across phone, chat, and email support.",
       "Led coordination during system failures, maintaining seamless operations.",
@@ -84,10 +92,18 @@ const ExperienceCard = ({ exp, index }: { exp: ExperienceItem; index: number }) 
             <span className="text-muted-foreground text-xs">{exp.location}</span>
           </div>
 
-          <h3 className="text-xl md:text-2xl font-display font-semibold mb-1 group-hover:text-gradient transition-all duration-300">
-            {exp.role}
-          </h3>
-          <p className="text-muted-foreground text-sm mb-1">{exp.company}</p>
+          <div className="flex items-center gap-4 mb-4">
+            <div className="w-10 h-10 rounded-lg overflow-hidden bg-muted/20 border border-border/50 flex-shrink-0 flex items-center justify-center">
+              <img src={exp.logo} alt={exp.company} className="w-8 h-8 object-contain" />
+            </div>
+            <div>
+              <h3 className="text-xl md:text-2xl font-display font-semibold group-hover:text-gradient transition-all duration-300">
+                {exp.role}
+              </h3>
+              <p className="text-muted-foreground text-sm">{exp.company}</p>
+            </div>
+          </div>
+
           <p className="text-primary/70 text-xs font-mono uppercase tracking-wider mb-5">{exp.highlight}</p>
 
           <ul className="space-y-3">
@@ -124,11 +140,8 @@ const ExperienceSection = () => {
           <h2 className="text-4xl md:text-6xl font-display font-bold">Experience</h2>
         </motion.div>
 
-        {/* Timeline */}
         <div className="space-y-12 md:space-y-16 relative">
-          {/* Center line */}
           <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-border -translate-x-1/2 hidden md:block" />
-
           {experiences.map((exp, i) => (
             <ExperienceCard key={i} exp={exp} index={i} />
           ))}
