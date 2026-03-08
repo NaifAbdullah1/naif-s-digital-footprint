@@ -1,23 +1,45 @@
+import { useRef } from "react";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
+
+const highlights = [
+  { number: "41%", label: "Test suite speed increase", icon: "⚡" },
+  { number: "90+", label: "Users on tools I built", icon: "👥" },
+  { number: "25+", label: "Projects tracked", icon: "📊" },
+  { number: "68K+", label: "Scholarship applicants beat", icon: "🏆" },
+];
+
 const HighlightsSection = () => {
-  const highlights = [
-    { number: "41%", label: "Test suite speed improvement" },
-    { number: "90+", label: "Employees using tools I built" },
-    { number: "25+", label: "Projects tracked via dashboards" },
-    { number: "68K+", label: "Applicants — scholarship selection" },
-  ];
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-20 bg-card border-y border-border">
-      <div className="container max-w-4xl mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+    <section ref={ref} className="py-28 relative overflow-hidden">
+      {/* Glow line */}
+      <div className="absolute top-0 left-0 right-0 h-px glow-line opacity-40" />
+
+      <div className="container max-w-6xl mx-auto px-6 md:px-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4">
           {highlights.map((item, i) => (
-            <div key={i} className="text-center space-y-2">
-              <p className="text-3xl md:text-4xl font-display font-bold text-gradient">{item.number}</p>
-              <p className="text-xs md:text-sm text-muted-foreground leading-tight">{item.label}</p>
-            </div>
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: i * 0.15 }}
+              className="text-center space-y-3 group"
+            >
+              <span className="text-3xl">{item.icon}</span>
+              <p className="text-4xl md:text-5xl font-display font-bold text-gradient">
+                {item.number}
+              </p>
+              <p className="text-sm text-muted-foreground leading-tight">
+                {item.label}
+              </p>
+            </motion.div>
           ))}
         </div>
       </div>
+
+      <div className="absolute bottom-0 left-0 right-0 h-px glow-line opacity-40" />
     </section>
   );
 };
