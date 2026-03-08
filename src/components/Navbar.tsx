@@ -35,7 +35,7 @@ const Navbar = () => {
             <Mail className="w-4 h-4" />
           </a>
           <a
-            href="https://linkedin.com/in/naif-abdullah"
+            href="https://www.linkedin.com/in/naifabdullah1/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-primary transition-colors duration-300"
