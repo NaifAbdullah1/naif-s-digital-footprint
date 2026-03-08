@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Mail, Linkedin, MapPin, ChevronDown } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
+import profilePhoto from "@/assets/profile-photo.jpg";
 
 const HeroSection = () => {
   const ref = useRef<HTMLElement>(null);
@@ -35,63 +36,85 @@ const HeroSection = () => {
         style={{ y: textY, opacity }}
       >
         <div className="container max-w-6xl mx-auto px-6 md:px-12">
-          <motion.p
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-primary font-mono text-sm tracking-[0.4em] uppercase mb-6"
-          >
-            Finance · Technology · Strategy
-          </motion.p>
+          <div className="flex flex-col md:flex-row items-center md:items-end gap-10 md:gap-16">
+            {/* Text content */}
+            <div className="flex-1 order-2 md:order-1">
+              <motion.p
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-primary font-mono text-sm tracking-[0.4em] uppercase mb-6"
+              >
+                Finance · Technology · Strategy
+              </motion.p>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.4 }}
-            className="text-7xl md:text-[9rem] font-display font-bold leading-[0.85] tracking-tighter"
-          >
-            Naif
-            <br />
-            <span className="text-gradient">Abdullah</span>
-          </motion.h1>
+              <motion.h1
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.4 }}
+                className="text-7xl md:text-[9rem] font-display font-bold leading-[0.85] tracking-tighter"
+              >
+                Naif
+                <br />
+                <span className="text-gradient">Abdullah</span>
+              </motion.h1>
 
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 1, delay: 0.8 }}
-            className="w-32 h-[2px] bg-primary mt-8 mb-6 origin-left"
-          />
+              <motion.div
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ duration: 1, delay: 0.8 }}
+                className="w-32 h-[2px] bg-primary mt-8 mb-6 origin-left"
+              />
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }}
-            className="text-lg md:text-xl text-secondary-foreground max-w-lg leading-relaxed font-light"
-          >
-            Analyst at SNB Capital. CS from UW-Madison.
-            <br className="hidden md:block" />
-            Bridging technology and finance.
-          </motion.p>
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 1 }}
+                className="text-lg md:text-xl text-secondary-foreground max-w-lg leading-relaxed font-light"
+              >
+                Analyst at SNB Capital. CS from UW-Madison.
+                <br className="hidden md:block" />
+                Bridging technology and finance.
+              </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="flex flex-wrap gap-x-8 gap-y-3 text-sm text-muted-foreground mt-8"
-          >
-            <a href="mailto:Naif-Abdullah@outlook.sa" className="flex items-center gap-2 hover:text-primary transition-colors duration-300">
-              <Mail className="w-4 h-4" />
-              Naif-Abdullah@outlook.sa
-            </a>
-            <a href="https://linkedin.com/in/naif-abdullah" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors duration-300">
-              <Linkedin className="w-4 h-4" />
-              LinkedIn
-            </a>
-            <span className="flex items-center gap-2">
-              <MapPin className="w-4 h-4" />
-              Riyadh, Saudi Arabia
-            </span>
-          </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1.2 }}
+                className="flex flex-wrap gap-x-8 gap-y-3 text-sm text-muted-foreground mt-8"
+              >
+                <a href="mailto:Naif-Abdullah@outlook.sa" className="flex items-center gap-2 hover:text-primary transition-colors duration-300">
+                  <Mail className="w-4 h-4" />
+                  Naif-Abdullah@outlook.sa
+                </a>
+                <a href="https://linkedin.com/in/naif-abdullah" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-primary transition-colors duration-300">
+                  <Linkedin className="w-4 h-4" />
+                  LinkedIn
+                </a>
+                <span className="flex items-center gap-2">
+                  <MapPin className="w-4 h-4" />
+                  Riyadh, Saudi Arabia
+                </span>
+              </motion.div>
+            </div>
+
+            {/* Profile photo */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 0.6 }}
+              className="order-1 md:order-2 flex-shrink-0"
+            >
+              <div className="relative w-48 h-48 md:w-72 md:h-72 rounded-2xl overflow-hidden border-2 border-primary/20 shadow-2xl">
+                <img
+                  src={profilePhoto}
+                  alt="Naif Abdullah"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
+              </div>
+            </motion.div>
+          </div>
         </div>
       </motion.div>
 
