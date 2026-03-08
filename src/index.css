@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -53,11 +53,17 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans antialiased;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
   }
 
   h1, h2, h3, h4 {
     font-family: 'Playfair Display', serif;
+  }
+
+  ::selection {
+    background: hsl(42 78% 55% / 0.3);
+    color: hsl(40 20% 92%);
   }
 }
 
@@ -66,27 +72,53 @@
     font-family: 'Playfair Display', serif;
   }
   
+  .font-mono-alt {
+    font-family: 'Space Grotesk', monospace;
+  }
+
   .text-gradient {
     @apply bg-clip-text text-transparent;
     background-image: linear-gradient(135deg, hsl(42 78% 55%), hsl(42 60% 70%));
   }
 
-  .border-gradient {
-    border-image: linear-gradient(135deg, hsl(42 78% 55%), hsl(42 60% 70%)) 1;
+  .text-gradient-subtle {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(180deg, hsl(40 20% 92%), hsl(220 15% 55%));
   }
 
-  .section-fade-in {
-    animation: fadeInUp 0.6s ease-out both;
+  .parallax-bg {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(24px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .glass-panel {
+    background: hsl(220 25% 10% / 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid hsl(220 20% 18% / 0.5);
   }
+
+  .glow-line {
+    background: linear-gradient(90deg, transparent, hsl(42 78% 55%), transparent);
+  }
+
+  .noise-overlay {
+    position: relative;
+  }
+  
+  .noise-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
