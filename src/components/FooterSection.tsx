@@ -28,7 +28,7 @@ const FooterSection = () => {
               <span className="text-secondary-foreground group-hover:text-foreground transition-colors">Email</span>
             </a>
             <a
-              href="https://linkedin.com/in/naif-abdullah"
+              href="https://www.linkedin.com/in/naifabdullah1/"
               target="_blank"
               rel="noopener noreferrer"
               className="glass-panel rounded-xl px-6 py-4 flex items-center gap-3 hover:border-primary/40 transition-all duration-300 group"

@@ -1,26 +1,25 @@
 import { useRef } from "react";
-import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import parallaxCity from "@/assets/parallax-city.jpg";
 
 const ParallaxDivider = () => {
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
 
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
+  const bgY = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"]);
 
   return (
-    <section ref={ref} className="h-[60vh] relative overflow-hidden">
-      <motion.div className="absolute inset-0" style={{ y: bgY }}>
-        <img
-          src={parallaxCity}
-          alt=""
-          className="w-full h-[140%] object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/30 to-background" />
-      </motion.div>
+    <div ref={ref} className="h-[60vh] relative overflow-hidden">
+      <motion.img
+        src={parallaxCity}
+        alt=""
+        className="absolute inset-0 w-full h-[130%] object-cover -top-[15%]"
+        style={{ y: bgY }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background/30 to-background" />
 
       <div className="relative z-10 h-full flex items-center justify-center">
         <motion.blockquote
@@ -38,7 +37,7 @@ const ParallaxDivider = () => {
           </span>
         </motion.blockquote>
       </div>
-    </section>
+    </div>
   );
 };
 
