@@ -46,7 +46,6 @@ const experiences: ExperienceItem[] = [
     period: "2022 — 2024",
     location: "Wisconsin",
     highlight: "Building tools at scale",
-    logo: logoUw,
     bullets: [
       "Built web utility used by 90+ employees (React, Node, MySQL) replacing legacy systems.",
       "Created ReactJS training program, accelerating onboarding and code quality.",
@@ -59,7 +58,7 @@ const experiences: ExperienceItem[] = [
     period: "2022 — 2023",
     location: "Wisconsin",
     highlight: "Leadership & operations",
-    logo: logoUw,
+    
     bullets: [
       "Oversaw 90+ student employees across phone, chat, and email support.",
       "Led coordination during system failures, maintaining seamless operations.",
