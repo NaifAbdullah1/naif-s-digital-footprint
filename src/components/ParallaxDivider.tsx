@@ -9,10 +9,10 @@ const ParallaxDivider = () => {
     offset: ["start end", "end start"],
   });
 
-  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "-20%"]);
+  const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
 
   return (
-    <section ref={ref} className="h-[50vh] relative overflow-hidden">
+    <section ref={ref} className="h-[60vh] relative overflow-hidden">
       <motion.div className="absolute inset-0" style={{ y: bgY }}>
         <img
           src={parallaxCity}
