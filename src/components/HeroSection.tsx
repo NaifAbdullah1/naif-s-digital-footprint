@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Mail, Linkedin, MapPin, ChevronDown } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
-import profilePhoto from "@/assets/profile-photo.jpg";
+
 
 const HeroSection = () => {
   const ref = useRef<HTMLElement>(null);
@@ -98,22 +98,6 @@ const HeroSection = () => {
               </motion.div>
             </div>
 
-            {/* Profile photo */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 0.6 }}
-              className="order-1 md:order-2 flex-shrink-0"
-            >
-              <div className="relative w-56 h-56 md:w-96 md:h-96 rounded-2xl overflow-hidden border-2 border-primary/20 shadow-2xl">
-                <img
-                  src={profilePhoto}
-                  alt="Naif Abdullah"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
-              </div>
-            </motion.div>
           </div>
         </div>
       </motion.div>
