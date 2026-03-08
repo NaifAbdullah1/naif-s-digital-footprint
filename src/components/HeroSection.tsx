@@ -105,7 +105,7 @@ const HeroSection = () => {
               transition={{ duration: 1, delay: 0.6 }}
               className="order-1 md:order-2 flex-shrink-0"
             >
-              <div className="relative w-48 h-48 md:w-72 md:h-72 rounded-2xl overflow-hidden border-2 border-primary/20 shadow-2xl">
+              <div className="relative w-56 h-56 md:w-96 md:h-96 rounded-2xl overflow-hidden border-2 border-primary/20 shadow-2xl">
                 <img
                   src={profilePhoto}
                   alt="Naif Abdullah"

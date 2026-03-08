@@ -92,15 +92,15 @@ const ExperienceCard = ({ exp, index }: { exp: ExperienceItem; index: number }) 
             <span className="text-muted-foreground text-xs">{exp.location}</span>
           </div>
 
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-10 h-10 rounded-lg overflow-hidden bg-muted/20 border border-border/50 flex-shrink-0 flex items-center justify-center">
-              <img src={exp.logo} alt={exp.company} className="w-8 h-8 object-contain" />
-            </div>
+          <div className="flex items-start justify-between gap-4 mb-4">
             <div>
               <h3 className="text-xl md:text-2xl font-display font-semibold group-hover:text-gradient transition-all duration-300">
                 {exp.role}
               </h3>
               <p className="text-muted-foreground text-sm">{exp.company}</p>
+            </div>
+            <div className="w-10 h-10 rounded-lg overflow-hidden bg-muted/20 border border-border/50 flex-shrink-0 flex items-center justify-center">
+              <img src={exp.logo} alt={exp.company} className="w-8 h-8 object-contain" />
             </div>
           </div>
 
